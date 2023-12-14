@@ -1,0 +1,734 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --primary: #bc4123;
+  --secondary: rgb(24, 60, 60);
+  --tertiary: rgb(255, 237, 180);
+  --borderRadius: 5px;
+  --backGroundColorCard: rgba(0,0,0,0.2);
+  --dark-color-a: rgb(60, 100, 100);
+	--dark-color-b: rgb(60, 100, 100);
+	--backpost-color: rgb(255, 237, 180);
+	--post-color: rgb(255, 243, 204);
+	--light-backcolor: #f0f0f0;
+}
+ 
+body {
+  margin: 0;
+  padding: 30px;
+  font-size: 16px;
+  font-family: system-ui;
+  background: var(--secondary);
+  width:inherit;
+}
+
+* {
+  color: #fff;
+  margin: 0;
+}
+
+p {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit; 
+}
+
+button {
+  padding-bottom: 6px;
+  border-radius: var(--borderRadius);
+  font-family: system-ui;
+  font-size: 16px;
+  color: white;
+  border: 2px solid white;
+  margin-right: 10px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+button:hover{
+  border-color: var(--primary);
+}
+
+button:active {
+  background: var(--primary);
+}
+
+/* navbar */
+header nav {
+  display: flex;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header nav h1 {
+  margin-right: auto;
+  justify-content: flex-start;
+  font-size: 30px;
+  background-color: #f3ec78;
+  font-family: cursive;
+  /* background-image: linear-gradient(45deg, #f3ec78, #af4261); */
+  background-image: linear-gradient(45deg, #f3ec78, #af4261);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
+header nav a {
+  text-decoration: none;
+  justify-content: flex-end;
+  border: 2px solid white;
+  padding: 6px;
+  border-radius: var(--borderRadius);
+}
+
+header nav a:hover {
+  border-color: var(--primary);
+}
+
+header nav a.active {
+  background: var(--primary);
+}
+
+.menuBtn {
+  display: none;
+  padding: 8px;
+}
+
+.dropdown a {
+  display: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(0,0,0,0.2);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+  right: 20px;
+  top: 80px
+}
+
+.dropdown-content a {
+  float: none;
+  margin-bottom: 3px;
+  display: block;
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .menuBtn {
+    display:block;
+    justify-content: flex-end;
+  }  
+
+  header nav a {
+    display: none;    
+  }
+
+  #navItemSign {
+    display: block;    
+  }
+}
+
+/* page content - Outlet component in RootLAyout*/
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.card-container {
+  background: var(--backGroundColorCard);
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: var(--borderRadius);
+}
+
+/* help layout */
+.help-layout nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px auto;
+}
+
+.help-layout nav a{
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: var(--borderRadius);
+  text-decoration: none;
+}
+
+.help-layout nav a:hover{
+  border-color: var(--primary);
+}
+
+.help-layout nav a.active {
+  background: var(--primary);
+}
+
+/* faq */
+.faq .question {
+  background: var(--backGroundColorCard);
+  padding: 5px 20px;
+  border-radius: var(--borderRadius);
+  margin: 20px 0;
+}
+
+.contact {
+  background: var(--backGroundColorCard);
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: var(--borderRadius);
+  margin-left:38%
+}
+
+.contact p {
+  font-size: 16px;
+}
+
+.material-symbols-outlined {
+  vertical-align:sub;
+  color: burlywood;
+}
+
+/* allblogs list */
+.allblogs > a {
+  display: block;
+  background: var(--backGroundColorCard);
+  padding: 20px;
+  border-radius: var(--borderRadius);
+  margin: 20px 0;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.allblogs a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.allblogs > a:hover p:first-child {
+  font-size: 19px;
+}
+
+.allblogs > a p:first-child {
+	font-size: 18px;
+	margin-bottom: 4px;
+}
+
+.allblogs p {
+  margin: 0;
+}
+
+.allblogs > a p:not(:first-child) {
+ font-size: 16px;
+ color: #bbb;
+}
+
+.empty-blog {
+  margin-top: 30px;
+}
+
+/* allblogs details */
+.blog-details {
+  background: var(--backGroundColorCard);
+  padding: 20px;
+  border-radius: var(--borderRadius);
+  margin: 20px 0;
+}
+
+/* form */
+.create-form form {
+  margin-top: 20px;
+  background: var(--backGroundColorCard);
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: var(--borderRadius);
+}
+
+.todo-form {
+  background: var(--backGroundColorCard);
+  /* display: inline-block; */
+  padding: 20px 30px;
+  border-radius: var(--borderRadius);
+  margin-top: 20px;
+}
+
+.edit-form {
+  background: var(--backGroundColorCard);
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: var(--borderRadius);
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+.album-form {
+  background: var(--backGroundColorCard);
+  display: inline-block;
+  padding: 20px 30px;
+  padding-top: 5px;
+  border-radius: var(--borderRadius);
+  margin-top: 20px;
+}
+
+.activee {
+  background-color: #bc4123
+}
+
+form input, form textarea {
+  display: block;
+  font-family: system-ui;
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: var(--borderRadius);
+  border: 0;
+  min-width: 300px;
+  color: var(--secondary);
+}
+
+form textarea {
+  height: 120px;
+}
+
+/* to-do list */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: var(--backGroundColorCard);
+  min-width: 500px;
+  margin-top: 20px;
+}
+
+table thead {
+  background: var(--primary);
+}
+
+.todo-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 70px;
+}
+
+.todo-details {
+  border-radius: var(--borderRadius);
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.todo-details td, th {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-details span:last-child {
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: var(--borderRadius);
+  padding: 6px;
+}
+
+/* Signup-Login_Logout */
+.signup-login-forget-container {
+  background: var(--backGroundColorCard);
+  position: relative;
+  padding: 30px 0px;
+  border-radius: var(--borderRadius);
+  margin-left: 8%;
+  width: 1000px; 
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr;
+}
+
+.login-forget, .signup-delete {
+  border-radius: var(--borderRadius);
+  padding: 10px 20px 30px 30px;
+  float: left;
+  background: var(--backGroundColorCard);
+}
+
+.login-forget form input, .signup-delete form input {
+  padding: 12px;
+  border-radius: var(--borderRadius);
+  margin-bottom: 12px;
+  margin-top: 5px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.login-forget {
+  margin-left: 30px;
+}
+
+.signup-delete {
+  margin-left: 85px;
+}
+
+.vl {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 500px;
+}
+  
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary);
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  padding: 10px 10px;
+}
+
+.login-form , .forget-password-form {
+  background: var(--backGroundColorCard);
+  border-radius: var(--borderRadius);
+  padding: 10px 20px 30px 30px;
+  margin-top: 30px;
+  /* border-bottom: 3px dashed var(--primary); */
+}
+
+.forget-password-form h3 {
+  color:lightgreen
+}
+
+.signup-form , .delete-account-form {
+  background: var(--backGroundColorCard);
+  border-radius: var(--borderRadius);
+  padding: 10px 20px 30px 30px;
+  margin-top: 30px;
+  /* border-bottom: 3px dashed var(--primary); */
+}
+
+.delete-account-form h3 {
+  color:lightgreen
+}
+
+.login-form button, .signup-form button, .forget-password-form button, .delete-account-form button {
+  margin-bottom: 15px;
+}
+
+.login-form h3, .signup-form h3, .forget-password-form h3, .delete-account-form h3 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.login-form input, .signup-form input, .forget-password-form input, .delete-account-form input {
+  margin-top: 5px;
+}
+
+div.error {
+  font-size: 16px;
+  color: crimson;
+  margin-bottom: 5px;
+}
+
+.errorinput {
+  padding: 10px;
+  background: #ffefef;
+  border: 2px solid crimson;
+  color: crimson;
+  border-radius: var(--borderRadius);
+  margin: 20px 0;
+}
+
+.password-reset-done, .continue, .msg {
+  font-size: 14px;
+  margin-top: 15px;
+  color:lightgreen
+}
+
+
+/* Photo Albums Style **************************************/
+
+.form {
+	margin-bottom: 20px;
+}
+
+.form input[type="file"]{
+	border: 1px solid #ccc;
+	display: block;
+	width: 200px;
+}
+
+.col1 {
+	padding: 20px 30px;
+	margin-top: 20px;
+	height: 700px;
+	overflow-y: scroll;
+	background-color:rgba(0,0,0,0.2);
+	border-radius: 6px;
+	max-width: 580px;
+}
+
+.col2 {
+	padding: 20px 30px;
+	margin-top: 20px;
+	height: 700px;
+	overflow-y: scroll;
+	background-color:rgba(0,0,0,0.2);
+	border-radius: 6px;
+	max-width: 580px;
+}
+
+.albumCard {
+  display: inline-block;
+  background-color:rgba(0,0,0,0.2);
+  border-radius: 7px;
+  margin-bottom: 28px;
+  border: 1px solid rgb(195, 195, 195);
+	border-radius: 12px;
+  margin-right: 20px;
+  min-width: 250px;
+  text-wrap: wrap;
+}
+
+.albumCard a {
+	cursor: pointer;
+	width: 100%;
+	background-color: rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.albumCard .post .text {
+  text-wrap: wrap;
+  word-break: break-all;
+  padding-right: 6px;
+}
+
+.albumCard .post .text, .albumCard .post img {
+  float:left;
+}
+
+.albumCard button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.col1 .post .meta {
+	font-size: 14px;
+	opacity: 0.8;
+	margin-bottom: 5px;
+}
+
+/* All Albums Body *****************************************/
+.thumbnail-image {
+	border: 1px solid rgb(195, 195, 195);
+	border-radius: 12px;
+	padding: 5px;
+	height: 150px;
+}
+
+.thumbnail-empty-album {
+	border: 1px solid rgb(195, 195, 195);
+	border-radius: 12px;
+	padding: 5px;
+	height: 150px;
+	width: 100px;
+}
+
+.frame-image-details {
+	--s: 10px; 
+	padding: var(--s);
+	border: calc(2*var(--s)) solid #0000;
+	outline: 1px solid #000;
+	outline-offset: calc(-1*var(--s));
+	background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
+}
+
+.image-empty-album {
+	display: block;
+	margin-top: 50%;
+	text-align: center;
+}
+
+.not-found {
+	margin-top: 40px;
+	margin-left: 40px;
+}  
+
+/* Album Details Body *****************************************/
+.largeimage img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height:250px
+}
+  
+.prev, .next {
+	cursor: pointer;
+	color: rgb(106, 104, 104);
+	font-weight: bold;
+	font-size: 20px;
+	user-select: none;
+	-webkit-user-select: none;
+	float: left;
+}
+  
+.next {
+	float: right;
+}  
+
+.prev:hover,
+.next:hover {
+	color:red
+}
+
+.photonumber {
+	color: rgb(106, 104, 104);
+	font-size: 15px;
+	padding: 8px 12px;
+}
+  
+.largeimagecontainer::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.row::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.column {
+	position: relative;
+	border-color: darkgray;
+	float: left;
+	margin-top: 5px;
+}
+
+.column .demo{
+	height: 150px;
+	opacity: 0.6;
+	cursor: pointer;
+	object-fit: cover;
+	border-style: solid;
+	border-width: 1px;
+}  
+  
+.demo.active,
+.column .demo:hover {
+	opacity: 1;
+}
+
+.hide {
+	display: none;
+}
+
+.deletemany1 {
+	position: absolute;
+	bottom: 10px;
+	right: 10%; 
+	left: auto;
+	background-color:rgba(0, 0, 0, 0.8);
+	width: 80%;
+	border-radius: 10%;
+	opacity: 0.8; 
+	-webkit-user-select: none; 
+	-ms-user-select: none; 
+	user-select: none; 
+}
+
+.deletemany1 img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.deletemany2 {
+	position: absolute;
+	bottom: 10px;
+	right: 10%; 
+	left: auto;
+	background-color:rgba(0, 0, 0, 0.8);
+	width: 80%;
+	border-radius: 10%;
+	opacity: 0.8; 
+	-webkit-user-select: none; 
+	-ms-user-select: none; 
+	user-select: none; 
+}
+
+.deletemany2 strong{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cross-x {
+	color: red; 
+	font-size: 44px; 
+	font-family: Arial; 
+	text-align: center;
+}
+
+/* Responsive App *********************************/
+
+@media screen and (max-width: 768px) {
+  main {
+    margin-left: 60px;
+    margin-right: auto;
+  }
+  .vl {   
+    display: none;
+  }
+  .signup-login-forget-container {
+    margin-left: 60px;
+    margin-right: auto;
+    display: flex;
+    flex-flow: column;
+    width: fit-content; 
+  }
+  .login-forget, .signup-delete {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .todo-container {
+    display: flex;
+    flex-flow: column;
+    width: fit-content; 
+  }
+  .todo-container table {
+    min-width: 400px;
+  }
+
+  .col2 {
+    padding-right: 0px;
+    max-width: 400px;
+  }
+  .col2 .post {
+    min-width: 350px;
+    margin-bottom: 5px;
+  }
+
+  .menuBtn {
+    display:block;
+
+  }
+
+
+}
